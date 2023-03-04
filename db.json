@@ -1,0 +1,9 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "name": "First One",
+      "description": "This is the first post"
+    }
+  ]
+}
