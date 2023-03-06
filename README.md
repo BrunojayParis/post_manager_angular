@@ -1,27 +1,47 @@
-# PostManager
+# Post Manager
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.1.
+Challenge de desarrollo de aplicación en Angular 
 
-## Development server
+## Instalación :wrench:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Requerimientos Previos :nut_and_bolt:
 
-## Code scaffolding
+1. Instalar Node, [Descargar NodeJs](https://nodejs.org/es/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2. Clonar este repositorio. 
 
-## Build
+```bash
+git clone https://github.com/BrunojayParis/post_manager_angular.git
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Setup :hammer:
 
-## Running unit tests
+1. Ir a la carpeta del repositorio en tu computadora.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+2. Abrir un terminal en la carpeta del repo.
 
-## Running end-to-end tests
+3. Instalar Node-modules.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+cd post-manager
+npm install
+```
+4. Instalar dependencias.
 
-## Further help
+```bash
+cd post-manager
+npm i @ngrx/store json-server
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+
+## Run
+
+Para correr el Json-server
+```bash
+cd post-manager
+npm run server
+```
+Para correr el Front-end
+```bash
+ng serve --open
+```
