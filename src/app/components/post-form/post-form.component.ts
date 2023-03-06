@@ -1,5 +1,8 @@
-import { Component, Output, Input, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Posts } from 'src/app/Posts';
+import { PostService } from 'src/app/services/post.service';
+import { PostsActions } from 'src/app/state/posts.actions';
 
 @Component({
   selector: 'app-post-form',
@@ -9,9 +12,7 @@ import { Posts } from 'src/app/Posts';
 export class PostFormComponent {
   name!: string;
   description!: string;
-
-  @Input() posts!: Posts[];
-  @Output() onAddPost:EventEmitter<Posts> = new EventEmitter();
+   constructor(private postService:PostService, private store:Store){}
 
   onSubmit() {
     if (!this.name) {
@@ -23,13 +24,13 @@ export class PostFormComponent {
       name: this.name,
       description: this.description
     }
-
-    this.onAddPost.emit(newPost)
+    
+    this.postService.addPost(newPost).subscribe((post) => (
+    this.store.dispatch(PostsActions.addPost({ post }))
+    ))
 
     this.name = '';
     this.description = '';
-
-
   }
 
 }

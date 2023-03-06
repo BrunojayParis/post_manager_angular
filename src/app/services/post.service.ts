@@ -13,6 +13,7 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
+
 export class PostService {
 private urlApi = 'http://localhost:3000/posts'
   constructor(private http:HttpClient) { }

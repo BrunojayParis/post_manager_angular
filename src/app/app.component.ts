@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { Posts } from './Posts';
 import { PostService } from './services/post.service';
+import { Store } from '@ngrx/store';
+
+import { selectPosts } from './state/post.selectors';
+import { PostsApiActions } from './state/posts.actions';
+
 
 @Component({
   selector: 'app-root',
@@ -8,21 +13,14 @@ import { PostService } from './services/post.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  posts: Posts[] = [];
-  constructor(private postService: PostService) {}
+  posts$ = this.store.select(selectPosts)
+
+  constructor(private postService: PostService, private store: Store) { }
 
   ngOnInit(): void {
-    this.postService.getPosts().subscribe((posts) => (this.posts = posts));
-  }
-
-  deletePost(post:Posts){
-    this.postService.deletePost(post).subscribe(()=>(
-      this.posts = this.posts.filter(p => p.id !== post.id)
-    ))
-  }
-
-  addPost(post:Posts){
-    this.postService.addPost(post).subscribe((post)=>(this.posts.push(post)))
+    this.postService.getPosts().subscribe((posts) => (
+      this.store.dispatch(PostsApiActions.retrievedPostList({ posts }))
+    ));
   }
 
 }
