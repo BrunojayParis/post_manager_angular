@@ -31,3 +31,4 @@ private urlApi = 'http://localhost:3000/posts'
     return this.http.post<Posts>(this.urlApi,post,httpOptions)
   }
 }
+ 

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Posts } from 'src/app/Posts';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable} from 'rxjs';
+import { map } from 'rxjs/operators'; 
 
 
 import { selectPosts } from 'src/app/state/post.selectors';
@@ -16,7 +17,6 @@ import { PostsActions } from 'src/app/state/posts.actions';
 export class PostsComponent {
   filterText: string = ''
   posts$: Observable<Posts[]> = new Observable()
-
   constructor(private postService: PostService, private store: Store) { 
   }
 
@@ -30,4 +30,9 @@ export class PostsComponent {
     ))
   }
 
+  filterByName(filter:string){
+    return this.posts$.pipe(map(posts=>posts.filter(names => names.name.includes(filter))))
+  }
+
 }
+ 
