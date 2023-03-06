@@ -31,7 +31,7 @@ export class PostsComponent {
   }
 
   filterByName(filter:string){
-    return this.posts$.pipe(map(posts=>posts.filter(names => names.name.includes(filter))))
+    return this.posts$.pipe(map(posts=>posts.filter(names => names.name.toLowerCase().includes(filter.toLowerCase()))))
   }
 
 }
