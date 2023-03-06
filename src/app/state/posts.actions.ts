@@ -5,7 +5,7 @@ export const PostsActions = createActionGroup({
   source: 'Posts',
   events: {
     'Add Post': props<{ post:Posts  }>(),
-    'Delete Post': props<{ post:Posts }>(),
+    'Delete Post': props<{ post:Posts }>()
   },
 });
  

@@ -1,9 +1,7 @@
-<form class="add-form" (ngSubmit)="onSubmit()">
-  <div class="form-control">
-    <input type="text" name="name" [(ngModel)]="name" id="name" placeholder="Add name" />
+<form class="form" (ngSubmit)="onSubmit()">
+  <div class="post">
+  <input class="name" type="text" name="name" [(ngModel)]="name" id="name" placeholder="Add name" />
+  <input class="description" type="text" name="description" [(ngModel)]="description" id="description" placeholder="Add description" />
+  <input type="submit" value="Create" class="btn btn-block" />
   </div>
-  <div class="form-control">
-    <input type="text" name="description" [(ngModel)]="description" id="description" placeholder="Add description" />
-  </div>
-  <input type="submit" value="Save Task" class="btn btn-block" />
 </form>

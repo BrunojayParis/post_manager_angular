@@ -15,8 +15,8 @@ export class PostFormComponent {
    constructor(private postService:PostService, private store:Store){}
 
   onSubmit() {
-    if (!this.name) {
-      alert("please add a name")
+    if (!this.name || !this.description) {
+      alert("please add a name and description")
       return;
     }
 

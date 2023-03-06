@@ -14,5 +14,6 @@ export const postsReducer = createReducer(
 
     on(PostsActions.addPost, (state, { post}) => {
         return [...state, post]
-    }))
+    })
+    )
 ;

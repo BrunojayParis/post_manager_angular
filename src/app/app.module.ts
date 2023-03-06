@@ -8,15 +8,12 @@ import { postsReducer } from './state/posts.reducer';
 import { AppComponent } from './app.component';
 import { PostsComponent } from './components/posts/posts.component';
 import { PostFormComponent } from './components/post-form/post-form.component';
-import { FilterPipe } from './filter.pipe';
-
 
 @NgModule({
   declarations: [
     AppComponent,
     PostsComponent,
     PostFormComponent,
-    FilterPipe
   ],
   imports: [
     BrowserModule,

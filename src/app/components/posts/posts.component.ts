@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { Posts } from 'src/app/Posts';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -14,11 +14,11 @@ import { PostsActions } from 'src/app/state/posts.actions';
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent {
-  filterText!:string
-  posts$:Observable<Posts[]> = new Observable()
-  constructor(private postService: PostService, private store:Store){}
+  filterText: string = ''
+  posts$: Observable<Posts[]> = new Observable()
 
-  
+  constructor(private postService: PostService, private store: Store) { 
+  }
 
   ngOnInit(): void {
     this.posts$ = this.store.select(selectPosts)
@@ -29,6 +29,5 @@ export class PostsComponent {
       this.store.dispatch(PostsActions.deletePost({ post }))
     ))
   }
-
 
 }

@@ -1,6 +1,14 @@
-<div *ngFor="let post of posts$ | async" >
-    <input type="text" placeholder="filter" [(ngModel)]="filterText">
-    <p>{{post.name}}</p>
-    <p>{{post.description}}</p>
-    <button (click)="deletePost(post)">Delete</button>
+<div >
+    <div class="posts">
+        <h3 class="name">Name</h3>
+        <h3 class="description">Description</h3>
+        <h3>Action</h3>
+    </div>   
+    <div *ngFor="let post of posts$ | async">
+        <div class="posts">
+            <p class="name">{{post.name}}</p>
+            <p class="description">{{post.description}}</p>
+            <button (click)="deletePost(post)">Delete</button>
+        </div>
+    </div>
 </div>
